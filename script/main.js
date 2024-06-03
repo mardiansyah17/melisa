@@ -5,6 +5,7 @@ const fetchData = () => {
     .then((data) => {
       dataArr = Object.keys(data);
       dataArr.map((customData) => {
+        console.log(customData);
         if (data[customData] !== "") {
           if (customData === "imagePath") {
             document
@@ -272,30 +273,10 @@ const animationTimeline = () => {
         repeatDelay: 1.4,
       },
       0.3
-    )
-    .to(".six", 0.5, {
-      opacity: 0,
-      y: 30,
-      zIndex: "-1",
-    })
-    .staggerFrom(".nine p", 1, ideaTextTrans, 1.2)
-    .to(
-      ".last-smile",
-      0.5,
-      {
-        rotation: 90,
-      },
-      "+=1"
     );
 
   // tl.seek("currentStep");
   // tl.timeScale(2);
-
-  // Restart Animation on click
-  const replyBtn = document.getElementById("replay");
-  replyBtn.addEventListener("click", () => {
-    tl.restart();
-  });
 };
 
 // Run fetch and animation in sequence
